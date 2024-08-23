@@ -1,0 +1,86 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Coverage directory used by Jest
+coverage/
+
+# Compiled binaries
+*.exe
+*.out
+*.app
+
+# Build directory
+dist/
+build/
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# PM2 process file
+pm2.pid
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Sentry CLI files
+.sentryclirc
+
+# MongoDB data files
+data/db/
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Tern project
+.tern-project
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components/
+
+# VS Code settings
+.vscode/
+
+# TypeScript configuration
+tsconfig.json
+tsconfig.build.json

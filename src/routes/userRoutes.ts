@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { addFriends, getFriendsList, getSearchUsers, loginUser, registerUser, requestPasswordReset,  resetPasswordWithOtp } from "../controllers/userController";
+import authMiddleware from "../middlewares/auth/authMiddleware";
+const userRouter = Router();
+userRouter.post('/register',registerUser);
+userRouter.post('/login', loginUser);
+userRouter.post("/requestOtp", requestPasswordReset);
+userRouter.post("/resetPasswordWithOtp", resetPasswordWithOtp);
+userRouter.get("/getFriendsList", getFriendsList);
+userRouter.post("/addFriend", addFriends);
+userRouter.get("/search-user",authMiddleware, getSearchUsers);
+export default userRouter;
