@@ -105,4 +105,6 @@ server.listen(PORT, () => {
 });
 
 
-export default server;
+export default (req: Request, res: Response) => {
+    server.emit("request", req, res);
+};
