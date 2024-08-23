@@ -1,9 +1,23 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/index.js", "use": "@vercel/node" }
+    {
+      "src": "src/dist/index.js",
+      "use": "@vercel/node"
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.js" }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "src/dist/index.js"
+    }
+  ],
+  "env": {
+    "PORT": "9200",
+    "MONGO_URI": "mongodb+srv://sree:sree@cluster0.0i7gtnd.mongodb.net/chat?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT_SECRET": "your_jwt_secret_key",
+    "EMAIL_USER": "sriram.gsr6@gmail.com",
+    "EMAIL_PASS": "shxe pjix pqhj qdbt",
+    "NODE_ENV": "production"
+  }
 }
