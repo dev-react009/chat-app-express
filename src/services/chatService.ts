@@ -3,7 +3,6 @@ import Chat from "../models/chat.js"
 
 
 export const joinChatRoom = async (chatRoomId: string) => {
-  console.log(chatRoomId)
   const chatRoom = await Chat.findById(chatRoomId);
   if (!chatRoom) throw new Error("Chat room not found");
   return chatRoom;

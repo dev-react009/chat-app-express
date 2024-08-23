@@ -36,12 +36,13 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 const server = http.createServer(app);
 
 export const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
-        credentials: true,
-    },
-    transports: ["websocket", "polling"],
+  cors: {
+    origin:
+      "https://chat-app-react-7sg0bn9ln-dev-projects.vercel.app",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+  transports: ["websocket", "polling"],
 });
 
 io.on("connection", (socket) => {
@@ -108,3 +109,5 @@ server.listen(PORT, () => {
 export default (req: Request, res: Response) => {
     server.emit("request", req, res);
 };
+
+
