@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin:"*",
+    origin:"https://chat-app-express-seven.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
