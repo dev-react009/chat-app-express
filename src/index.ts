@@ -103,3 +103,6 @@ io.on("connection", (socket) => {
 server.listen(PORT, () => {
     log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+export default server;
