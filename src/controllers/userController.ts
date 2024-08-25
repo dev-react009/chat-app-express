@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import user from "../models/user.js";
-import { sendWelcomeEmail } from "../utils/mail.js";
-import { generateOTP, sendOTPEmail } from "../utils/sendOtp.js";
+import user from "../models/user";
+import { sendWelcomeEmail } from "../utils/mail";
+import { generateOTP, sendOTPEmail } from "../utils/sendOtp";
 import mongoose from "mongoose";
 import { log } from "../utils/logger";
 

@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import {messageSchema } from "./message.js";
+import {messageSchema } from "./message";
 import { IChat } from "../utils/interfaces";
 
 const chatSchema: Schema = new Schema({

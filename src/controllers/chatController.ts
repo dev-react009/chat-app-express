@@ -181,7 +181,6 @@ export const sendMessage = async (req: Request, res: Response) => {
       receiverObj.chats.push(chatRoom.id);
       await receiverObj!.save();
     }
-    // const updateMessage = {...newMessage,chatRoomId:chatId}
   log(
     "Emitting messageReceived with message:",
     newMessage,

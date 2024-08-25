@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin: "https://chat-app-react-kappa-six.vercel.app",
+    origin:"http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -73,11 +73,11 @@ io.on("connection", (socket) => {
     });
 
     socket.on("sendMessage", async ({ chatRoomId, senderId, content, receiver }) => {
+    
         try {
             if (!chatRoomId || !senderId || !content || !receiver) {
                 throw new Error("All message fields are required");
             }
-
             const newMessage = {chatRoomId, senderId, content, receiver};
             io.to(chatRoomId).emit('newMessage', newMessage);
              io.to(receiver).emit("newMessage", newMessage);
@@ -105,8 +105,8 @@ server.listen(PORT, () => {
 });
 
 
-export default (req: Request, res: Response) => {
-    server.emit("request", req, res);
-};
+// export default (req: Request, res: Response) => {
+//     server.emit("request", req, res);
+// };
 
 
