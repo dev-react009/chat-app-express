@@ -12,7 +12,7 @@
     "lib": ["es2020", "dom"],             // Include ES2020 and DOM libraries
     "allowJs": true,                      // Allow JavaScript files in the project
     "strict": true,                       // Enable strict type-checking options
-    "typeRoots": ["./src/types", "./node_modules/@types"], // Specify type roots
+    "typeRoots": [ "./node_modules/@types","./src/types",], // Specify type roots
     "types": ["node", "express"],         // Specify the types for Node and Express
     "skipLibCheck": true,                 // Skip checking of library declaration files
     "forceConsistentCasingInFileNames": true // Ensure consistent file casing
