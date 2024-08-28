@@ -37,7 +37,7 @@ const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin: "https://chat-app-react-kappa-six.vercel.app",
+    origin: "https://chat-app-react-coral.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
