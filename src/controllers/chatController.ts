@@ -99,7 +99,6 @@ export const create_FindChat = async (req:Request,res:Response)=>{
     });
   }
   catch(error:any){
-    log(error);
     if (error instanceof Error) {
       return res
         .status(500)
@@ -181,12 +180,6 @@ export const sendMessage = async (req: Request, res: Response) => {
       receiverObj.chats.push(chatRoom.id);
       await receiverObj!.save();
     }
-  log(
-    "Emitting messageReceived with message:",
-    newMessage,
-    "to room:",
-    chatRoom.id
-  );
     io.to(chatRoom.id).emit("messageReceived", newMessage);
     
     res.status(201).json({
@@ -208,7 +201,6 @@ export const sendMessage = async (req: Request, res: Response) => {
 
 export const getRecentChatsHistory = async (req: Request, res: Response) => {
   const userId = req.userId; 
-  log('user',user);
 
   try {
     // Find the user's chat rooms where the user is a participant
@@ -282,7 +274,6 @@ export const getRecentChatsHistory = async (req: Request, res: Response) => {
 export const getChatsWithFriend = async (req: Request, res: Response) => {
   const userId = req.userId; 
   const friendId = req.params.friendId; 
-log(req.params.friendId);
 // log(!mongoose.Types.ObjectId.isValid(friendId));
   try {
     if (!mongoose.Types.ObjectId.isValid(friendId)) {

@@ -14,7 +14,6 @@ if (!JWT) {
 }
 export const registerUser  =async(req:Request,res:Response)=>{
     const {username,email,password,mobile} = req.body;
-    log(req.body)
     if(!username||!email|| !password ||!mobile){
         return res.status(400).json({status:false,statusCode:400,error:"All fields are Required"});
     };
@@ -47,7 +46,6 @@ export const registerUser  =async(req:Request,res:Response)=>{
         
     const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new user({ username, email, password:hashedPassword, mobile });
-        log(newUser)
         await newUser.save();
             await sendWelcomeEmail(email, username);
         res.status(201).json({status:true,statusCode:201,message:"User created successfully"});
@@ -77,7 +75,6 @@ export const loginUser = async(req:Request,res:Response)=>{
         };
 
         const isMatch = await bcrypt.compare(password,userObj.password);
-        log(isMatch);
         if(!isMatch){
             return res
               .status(404)
@@ -146,7 +143,6 @@ export const resetPasswordWithOtp = async (req: Request, res: Response) => {
 
   try {
     const findExistingUser = await user.findOne({ email });
-    log(email, otp, newPassword);
     if (!findExistingUser) {
       return res
         .status(404)
@@ -176,7 +172,6 @@ export const resetPasswordWithOtp = async (req: Request, res: Response) => {
     findExistingUser.password = await bcrypt.hash(newPassword, 10);
     findExistingUser.resetOtp = undefined;
     findExistingUser.resetOtpExpire = undefined;
-    log(findExistingUser);
     await findExistingUser.save();
     res.status(200).json({
       status: true,
@@ -202,7 +197,6 @@ export const resetPasswordWithOtp = async (req: Request, res: Response) => {
 
 export const addFriends = async (req: Request, res: Response) => {
   try {
-    log("curr", req.body);
     const { userId, friendId } = req.body;
 
     if (!userId || !friendId) {
@@ -231,7 +225,6 @@ export const addFriends = async (req: Request, res: Response) => {
     
     
     await currentUser.save();
-    log("curr", currentUser);
 
     const friendUser = await user.findOne({ friendId });
     if (friendUser && !friendUser.friends.includes(userId)) {
@@ -302,7 +295,6 @@ export const getSearchUsers=async(req:Request,res:Response)=>{
   const currentUserId = req.userId; 
   try {
     const { query, limit = 10, offset = 0 } = req.query;
-    log( typeof query);
     if (!query || typeof query !== "string") {
       return res.status(400).json({status:false,statusCode:404, message: "Invalid query parameter" });
     }
